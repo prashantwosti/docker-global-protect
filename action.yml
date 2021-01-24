@@ -1,0 +1,23 @@
+name: 'global protect vpn'
+description: 'Connects to global protect vpn'
+inputs:
+  url:  # id of input
+    description: 'global protect portal url'
+    required: true
+  username:  # id of input
+    description: 'global protect username'
+    required: true
+  password:  # id of input
+    description: 'global protect password'
+    required: true
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url }}
+    - ${{ inputs.username }}
+    - ${{ inputs.password }}
+    

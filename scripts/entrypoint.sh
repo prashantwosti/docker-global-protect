@@ -15,10 +15,10 @@ _sha256() {
 
 
 gvpn() {
-    echo -n "${PASSWORD}" \
-    | openconnect --protocol=gp "${SERVER}" \
+    echo -n "${password}" \
+    | openconnect --protocol=gp "${url}" \
     --servercert pin-sha256:"$(_sha256)" \
-    --user="${USER}" -b && echo "Connected!"\
+    --user="${username}" -b && echo "Connected!"\
     && sleep 5 &&
     iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE &&
     iptables -A FORWARD -i eth0 -j ACCEPT &&
